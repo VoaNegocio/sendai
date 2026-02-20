@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+    /* Offset for sticky headers or just breathing room */
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Shimmer Animation */
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-150%) skewX(-20deg);
+    }
+
+    100% {
+      transform: translateX(200%) skewX(-20deg);
+    }
+  }
+
+  .animate-shimmer-slide {
+    animation: shimmer 3s infinite ease-in-out;
+  }
+}
