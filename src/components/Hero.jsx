@@ -9,7 +9,17 @@ const Hero = () => {
 
         const formData = new FormData(e.target);
         const data = Object.fromEntries(formData.entries());
-        data.formSource = 'Hero Form';
+
+        const payload = {
+            origem: 'Hero Form',
+            data_hora: new Date().toLocaleString('pt-BR'),
+            lead: {
+                nome: data.nome,
+                telefone: data.telefone,
+                quantidade: data.quantidade || 'Não informada',
+                prazo: data.prazo || 'Não informado'
+            }
+        };
 
         try {
             const response = await fetch('https://hook.us1.make.com/47p4nl4pqf39pj8geww6owfz6g61w7z2', {
@@ -17,7 +27,7 @@ const Hero = () => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(data),
+                body: JSON.stringify(payload),
             });
 
             if (response.ok) {
