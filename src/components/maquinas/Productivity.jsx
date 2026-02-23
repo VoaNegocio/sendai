@@ -13,7 +13,7 @@ const Productivity = () => {
 
                 <div className="grid md:grid-cols-3 gap-8">
                     <div className="bg-white p-6 rounded-xl border border-white/20 shadow-lg text-center hover:shadow-xl transition-shadow">
-                        <div className="w-12 h-12 bg-green-100 text-construction-green rounded-full flex items-center justify-center mx-auto mb-4">
+                        <div className="w-12 h-12 bg-red-100 text-brand-red rounded-full flex items-center justify-center mx-auto mb-4">
                             <MessageSquare className="w-6 h-6" />
                         </div>
                         <h3 className="font-bold text-deep-slate mb-2">Atendimento Rápido</h3>
@@ -21,7 +21,7 @@ const Productivity = () => {
                     </div>
 
                     <div className="bg-white p-6 rounded-xl border border-white/20 shadow-lg text-center hover:shadow-xl transition-shadow">
-                        <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <div className="w-12 h-12 bg-red-100 text-brand-red rounded-full flex items-center justify-center mx-auto mb-4">
                             <Clock className="w-6 h-6" />
                         </div>
                         <h3 className="font-bold text-deep-slate mb-2">Manutenção Inclusa</h3>
@@ -29,7 +29,7 @@ const Productivity = () => {
                     </div>
 
                     <div className="bg-white p-6 rounded-xl border border-white/20 shadow-lg text-center hover:shadow-xl transition-shadow">
-                        <div className="w-12 h-12 bg-orange-100 text-safety-orange rounded-full flex items-center justify-center mx-auto mb-4">
+                        <div className="w-12 h-12 bg-red-100 text-brand-red rounded-full flex items-center justify-center mx-auto mb-4">
                             <Zap className="w-6 h-6" />
                         </div>
                         <h3 className="font-bold text-deep-slate mb-2">+40% Eficiência</h3>
