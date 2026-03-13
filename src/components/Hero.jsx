@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Hero = () => {
     const [status, setStatus] = useState('');
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log('--- Form Submitted ---');
         setStatus('Enviando...');
 
         const formData = new FormData(e.target);
         const data = Object.fromEntries(formData.entries());
+        console.log('Payload data:', data);
 
         const payload = {
             origem: 'Hero Form',
@@ -22,6 +26,7 @@ const Hero = () => {
         };
 
         try {
+            console.log('Enviando requisição fetch...');
             const response = await fetch('https://hook.us1.make.com/47p4nl4pqf39pj8geww6owfz6g61w7z2', {
                 method: 'POST',
                 headers: {
@@ -30,14 +35,19 @@ const Hero = () => {
                 body: JSON.stringify(payload),
             });
 
+            console.log('Status da requisição:', response.status);
+            console.log('Response ok?', response.ok);
+
             if (response.ok) {
+                console.log('Redirecionando para obrigado...');
                 setStatus('Enviado com sucesso!');
                 e.target.reset();
+                navigate('/obrigado');
             } else {
                 setStatus('Erro ao enviar. Tente novamente.');
             }
         } catch (error) {
-            console.error('Erro:', error);
+            console.error('Erro no catch:', error);
             setStatus('Erro ao enviar. Tente novamente.');
         }
     };

@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const ContactForm = () => {
     const [status, setStatus] = useState('');
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -33,6 +35,7 @@ const ContactForm = () => {
             if (response.ok) {
                 setStatus('Enviado com sucesso!');
                 e.target.reset();
+                navigate('/obrigado');
             } else {
                 setStatus('Erro ao enviar. Tente novamente.');
             }
